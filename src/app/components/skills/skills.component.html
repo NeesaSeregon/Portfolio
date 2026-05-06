@@ -10,23 +10,14 @@
                 <h4 class="card-title h6 text-uppercase text-primary fw-bold mb-4">
                   {{ category.label }}
                 </h4>
-                @for (skill of skillsByCategory(category.key); track skill.name) {
-                  <div class="skill-item mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                      <span class="skill-name fw-medium">{{ skill.name }}</span>
-                      <span class="skill-level text-muted small">{{ skill.level }}%</span>
+                <div class="skills-grid">
+                  @for (skill of skillsByCategory(category.key); track skill.name) {
+                    <div class="skill-item">
+                      <i [class]="skill.iconClass"></i>
+                      <span>{{ skill.name }}</span>
                     </div>
-                    <div class="progress" style="height: 8px;">
-                      <div class="progress-bar"
-                           role="progressbar"
-                           [style.width.%]="skill.level"
-                           [attr.aria-valuenow]="skill.level"
-                           aria-valuemin="0"
-                           aria-valuemax="100">
-                      </div>
-                    </div>
-                  </div>
-                }
+                  }
+                </div>
               </div>
             </div>
           </div>

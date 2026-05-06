@@ -39,24 +39,24 @@ export class PortfolioService {
 
   readonly skills: Skill[] = [
     // Frontend
-    { name: 'Angular', level: 90, category: 'frontend' },
-    { name: 'HTML / CSS', level: 90, category: 'frontend' },
-    { name: 'TypeScript', level: 95, category: 'frontend' },
-    { name: 'Bootstrap', level: 60, category: 'frontend' },
-    { name: 'JavaScript', level: 95, category: 'frontend' },
+    { name: 'Angular', iconClass: 'devicon-angularjs-plain colored', category: 'frontend' },
+    { name: 'HTML / CSS', iconClass: 'devicon-html5-plain colored', category: 'frontend' },
+    { name: 'TypeScript', iconClass: 'devicon-typescript-plain colored', category: 'frontend' },
+    { name: 'Bootstrap', iconClass: 'devicon-bootstrap-plain colored', category: 'frontend' },
+    { name: 'JavaScript', iconClass: 'devicon-javascript-plain colored', category: 'frontend' },
     // Backend
-    { name: 'Java', level: 75, category: 'backend' },
-    { name: 'php', level: 95, category: 'backend' },
-    { name: 'Symfony', level: 85, category: 'backend' },
-    { name: 'SQL', level: 70, category: 'backend' },
-    { name: 'REST APIs', level: 75, category: 'backend' },
+    { name: 'Java', iconClass: 'devicon-java-plain colored', category: 'backend' },
+    { name: 'PHP', iconClass: 'devicon-php-plain colored', category: 'backend' },
+    { name: 'Symfony', iconClass: 'devicon-symfony-plain', category: 'backend' },
+    { name: 'SQL', iconClass: 'devicon-mysql-plain colored', category: 'backend' },
+    { name: 'REST APIs', iconClass: 'fas fa-plug', category: 'backend' },
     // Tools
-    { name: 'Git', level: 80, category: 'tools' },
-    { name: 'Docker', level: 55, category: 'tools' },
-    { name: 'VS Code', level: 90, category: 'tools' },
-    { name: 'GitHub', level: 90, category: 'tools' },
-    { name: 'GitLab', level: 80, category: 'tools' },
-    { name: 'Jira', level: 60, category: 'tools' },
+    { name: 'Git', iconClass: 'devicon-git-plain colored', category: 'tools' },
+    { name: 'Docker', iconClass: 'devicon-docker-plain colored', category: 'tools' },
+    { name: 'VS Code', iconClass: 'devicon-vscode-plain colored', category: 'tools' },
+    { name: 'GitHub', iconClass: 'devicon-github-original', category: 'tools' },
+    { name: 'GitLab', iconClass: 'devicon-gitlab-plain colored', category: 'tools' },
+    { name: 'Jira', iconClass: 'devicon-jira-plain colored', category: 'tools' },
   ];
 
   readonly experience: Experience[] = [

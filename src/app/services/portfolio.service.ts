@@ -22,57 +22,55 @@ export class PortfolioService {
     },
     {
       platform: 'LinkedIn',
-      url: 'https://linkedin.com/in/',
+      url: 'https://www.linkedin.com/in/luis-torices-fernandez-b0a5b7117/?skipRedirect=true',
       iconClass: 'fab fa-linkedin'
     },
     {
       platform: 'Email',
       url: 'mailto:luis.babuska@gmail.com',
       iconClass: 'fas fa-envelope'
+    },
+    {
+      platform: 'Infojobs',
+      url: 'https://www.infojobs.net/candidate/cv/view/index.xhtml',
+      iconClass: 'fa-address-card'
     }
   ];
 
   readonly skills: Skill[] = [
     // Frontend
-    { name: 'Angular', level: 70, category: 'frontend' },
-    { name: 'HTML / CSS', level: 85, category: 'frontend' },
-    { name: 'TypeScript', level: 70, category: 'frontend' },
-    { name: 'Bootstrap', level: 80, category: 'frontend' },
+    { name: 'Angular', level: 90, category: 'frontend' },
+    { name: 'HTML / CSS', level: 90, category: 'frontend' },
+    { name: 'TypeScript', level: 95, category: 'frontend' },
+    { name: 'Bootstrap', level: 60, category: 'frontend' },
+    { name: 'JavaScript', level: 95, category: 'frontend' },
     // Backend
     { name: 'Java', level: 75, category: 'backend' },
-    { name: 'Spring Boot', level: 65, category: 'backend' },
+    { name: 'php', level: 95, category: 'backend' },
+    { name: 'Symfony', level: 85, category: 'backend' },
     { name: 'SQL', level: 70, category: 'backend' },
     { name: 'REST APIs', level: 75, category: 'backend' },
     // Tools
     { name: 'Git', level: 80, category: 'tools' },
     { name: 'Docker', level: 55, category: 'tools' },
     { name: 'VS Code', level: 90, category: 'tools' },
+    { name: 'GitHub', level: 90, category: 'tools' },
+    { name: 'GitLab', level: 80, category: 'tools' },
+    { name: 'Jira', level: 60, category: 'tools' },
   ];
 
   readonly experience: Experience[] = [
     {
-      company: 'Empresa Ejemplo S.L.',
-      position: 'Desarrollador Full Stack',
-      startDate: 'Enero 2023',
-      endDate: null,
-      description: [
-        'Desarrollo de aplicaciones web con Angular y Spring Boot.',
-        'Diseño e implementación de APIs REST.',
-        'Participación en sprints ágiles y revisiones de código.'
-      ],
-      technologies: ['Angular', 'Spring Boot', 'PostgreSQL', 'Docker']
-    },
-    {
-      company: 'Otra Empresa S.A.',
-      position: 'Desarrollador Junior',
-      startDate: 'Junio 2021',
-      endDate: 'Diciembre 2022',
+      company: 'SERBATIC SISTEMAS TECNOLOGICOS S.L. - VALLADOLID',
+      position: 'Desarrollador Junior (Practicas)',
+      startDate: 'Septiembre 2024',
+      endDate: 'Diciembre 2024',
       description: [
         'Mantenimiento y mejora de aplicaciones existentes.',
-        'Corrección de errores y optimización de rendimiento.',
-        'Colaboración en el equipo de desarrollo frontend.'
+        'Participacion en su programa de formacion interno',
+        'Colaboración en equipo de desarrollo de una tienda online.'
       ],
-      technologies: ['JavaScript', 'HTML', 'CSS', 'MySQL']
+      technologies: ['Java', 'SpringBoot', 'HTML', 'CSS', 'MySQL']
     }
   ];
 
@@ -104,27 +102,19 @@ export class PortfolioService {
       featured: true
     },
     {
-      name: 'Proyecto E-Commerce',
-      description: 'Aplicación de tienda online con carrito de compras, autenticación de usuarios y panel de administración.',
-      technologies: ['Angular', 'Spring Boot', 'MySQL'],
-      githubUrl: 'https://github.com/',
-      liveUrl: '',
+      name: 'Acortador de Links',
+      description: 'Aplicación para acortar URLs, autenticación de usuarios y panel de administración ademas de capacidad de analisis de uso de los links creados.',
+      technologies: ['Angular', 'Symfony', 'MySQL', 'Bootstrap', 'TypeScript'],
+      githubUrl: 'https://github.com/NeesaSeregon/shortnees',
+      liveUrl: 'shortnees.com',
       featured: true
     },
     {
-      name: 'API REST de Tareas',
-      description: 'API RESTful para gestión de tareas con autenticación JWT, roles de usuario y documentación Swagger.',
-      technologies: ['Spring Boot', 'Java', 'PostgreSQL', 'Docker'],
-      githubUrl: 'https://github.com/',
+      name: 'Proximamente',
+      description: '',
+      technologies: [],
+      githubUrl: '',
       featured: false
     },
-    {
-      name: 'App del Tiempo',
-      description: 'Aplicación de consulta meteorológica que consume una API externa y muestra previsiones con gráficas.',
-      technologies: ['Angular', 'TypeScript', 'Chart.js'],
-      githubUrl: 'https://github.com/',
-      liveUrl: '',
-      featured: false
-    }
   ];
 }

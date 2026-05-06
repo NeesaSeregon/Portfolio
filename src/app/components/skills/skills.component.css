@@ -1,0 +1,17 @@
+.progress-bar {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+
+.progress {
+  background-color: var(--color-border);
+  border-radius: 4px;
+}
+
+.skill-name {
+  font-size: 0.9rem;
+}
+
+.skill-level {
+  font-size: 0.8rem;
+}

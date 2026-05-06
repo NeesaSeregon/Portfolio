@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+/* ================================
+   CSS Variables — edita aquí el tema
+   ================================ */
+:root {
+  --color-primary: #60a5fa;
+  --color-primary-rgb: 96, 165, 250;
+  --color-surface: #1e293b;
+  --color-background: #0f172a;
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-border: #334155;
+  --section-padding: 5rem 0;
+  --font-family: 'Inter', sans-serif;
+}
+
+/* ================================
+   Base
+   ================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.6;
+}
+
+/* ================================
+   Secciones
+   ================================ */
+.section-padding {
+  padding: var(--section-padding);
+}
+
+.section-alt {
+  background-color: var(--color-surface);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: var(--color-primary);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* ================================
+   Tech badges
+   ================================ */
+.tech-badge {
+  background-color: rgba(var(--color-primary-rgb), 0.15);
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.78rem;
+  padding: 0.3em 0.65em;
+  border-radius: 4px;
+}
+
+/* ================================
+   Date badges (timeline)
+   ================================ */
+.date-badge {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text-muted) !important;
+  border: 1px solid var(--color-border) !important;
+  font-weight: 400;
+}
+
+/* ================================
+   Footer
+   ================================ */
+.footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ================================
+   Utilidades
+   ================================ */
+ul {
+  list-style-type: disc;
+}

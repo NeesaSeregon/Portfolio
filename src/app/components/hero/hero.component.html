@@ -1,0 +1,40 @@
+<section id="hero" class="hero-section d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+
+      <div class="col-lg-7 order-2 order-lg-1 text-center text-lg-start">
+        <p class="hero-greeting mb-1">Hola, soy</p>
+        <h1 class="hero-name display-3 fw-bold mb-2">{{ portfolio.name }}</h1>
+        <h2 class="hero-title h4 mb-3">{{ portfolio.title }}</h2>
+        <p class="hero-tagline lead mb-4">{{ portfolio.tagline }}</p>
+
+        <div class="hero-actions d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+          <button class="btn btn-primary btn-lg" (click)="scrollTo('projects')">
+            <i class="fas fa-code me-2"></i>Ver proyectos
+          </button>
+          <button class="btn btn-outline-secondary btn-lg" (click)="scrollTo('contact')">
+            <i class="fas fa-envelope me-2"></i>Contactar
+          </button>
+        </div>
+
+        <div class="hero-socials mt-4 d-flex gap-3 justify-content-center justify-content-lg-start">
+          @for (link of portfolio.socialLinks; track link.platform) {
+            <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+               class="social-icon" [title]="link.platform">
+              <i [class]="link.iconClass"></i>
+            </a>
+          }
+        </div>
+      </div>
+
+      <div class="col-lg-4 order-1 order-lg-2 text-center mb-4 mb-lg-0">
+        <div class="hero-photo-wrapper">
+          <img [src]="portfolio.photoUrl" [alt]="portfolio.name"
+               class="hero-photo rounded-circle"
+               onerror="this.src='https://via.placeholder.com/250x250/6c757d/ffffff?text=Foto'">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

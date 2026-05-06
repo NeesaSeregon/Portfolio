@@ -1,0 +1,43 @@
+<section id="projects" class="section-padding">
+  <div class="container">
+    <h2 class="section-title text-center mb-5">Proyectos</h2>
+    <div class="row g-4">
+      @for (project of portfolio.projects; track project.name) {
+        <div class="col-md-6 col-lg-6">
+          <div class="card project-card border-0 shadow-sm h-100" [class.featured]="project.featured">
+            @if (project.featured) {
+              <div class="featured-badge">
+                <span class="badge bg-primary">Destacado</span>
+              </div>
+            }
+            <div class="card-body p-4 d-flex flex-column">
+              <h3 class="card-title h5 fw-bold mb-2">{{ project.name }}</h3>
+              <p class="card-text text-muted flex-grow-1 mb-3">{{ project.description }}</p>
+
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                @for (tech of project.technologies; track tech) {
+                  <span class="badge tech-badge">{{ tech }}</span>
+                }
+              </div>
+
+              <div class="d-flex gap-2 flex-wrap">
+                @if (project.githubUrl) {
+                  <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer"
+                     class="btn btn-sm btn-outline-dark">
+                    <i class="fab fa-github me-1"></i>GitHub
+                  </a>
+                }
+                @if (project.liveUrl) {
+                  <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer"
+                     class="btn btn-sm btn-outline-primary">
+                    <i class="fas fa-external-link-alt me-1"></i>Demo
+                  </a>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

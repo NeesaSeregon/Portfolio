@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg fixed-top" [class.scrolled]="isScrolled">
+  <div class="container">
+    <a class="navbar-brand fw-bold" (click)="scrollTo('hero')" role="button">
+      {{ portfolio.name }}
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" (click)="scrollTo('about')" role="button">Sobre mí</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="scrollTo('skills')" role="button">Habilidades</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="scrollTo('experience')" role="button">Experiencia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="scrollTo('education')" role="button">Formación</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="scrollTo('projects')" role="button">Proyectos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="scrollTo('contact')" role="button">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,79 @@
+<section id="contact" class="section-padding section-alt">
+  <div class="container">
+    <h2 class="section-title text-center mb-2">Contacto</h2>
+    <p class="text-center text-muted mb-5">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+
+    <div class="row justify-content-center g-4">
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <h3 class="h5 fw-bold mb-4">Información de contacto</h3>
+
+            <div class="contact-info d-flex flex-column gap-3">
+              <div class="d-flex align-items-center gap-3">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <small class="text-muted d-block">Email</small>
+                  <a [href]="'mailto:' + portfolio.email" class="fw-medium text-decoration-none">
+                    {{ portfolio.email }}
+                  </a>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center gap-3">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <small class="text-muted d-block">Ubicación</small>
+                  <span class="fw-medium">{{ portfolio.location }}</span>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">
+
+            <h4 class="h6 fw-bold mb-3">Redes sociales</h4>
+            <div class="d-flex gap-3">
+              @for (link of portfolio.socialLinks; track link.platform) {
+                <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+                   class="social-btn btn btn-outline-secondary btn-sm"
+                   [title]="link.platform">
+                  <i [class]="link.iconClass + ' me-1'"></i>{{ link.platform }}
+                </a>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <h3 class="h5 fw-bold mb-4">Envíame un mensaje</h3>
+            <form>
+              <div class="mb-3">
+                <label for="contactName" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="contactName" placeholder="Tu nombre">
+              </div>
+              <div class="mb-3">
+                <label for="contactEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="contactEmail" placeholder="tu@email.com">
+              </div>
+              <div class="mb-3">
+                <label for="contactMessage" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="contactMessage" rows="4"
+                          placeholder="Cuéntame sobre tu proyecto..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                <i class="fas fa-paper-plane me-2"></i>Enviar mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -4,7 +4,7 @@ import { Education, Experience, Project, Skill, SocialLink } from '../models/por
 @Injectable({ providedIn: 'root' })
 export class PortfolioService {
 
-  readonly name = 'Luis Torices';
+  readonly name = 'Luis Torices Fernández';
   readonly title = 'Desarrollador de Software';
   readonly tagline = 'Apasionado por crear aplicaciones web modernas y eficientes.';
   readonly bio = `Soy un desarrollador con experiencia en el desarrollo de aplicaciones web,
@@ -17,7 +17,7 @@ export class PortfolioService {
   readonly socialLinks: SocialLink[] = [
     {
       platform: 'GitHub',
-      url: 'https://github.com/',
+      url: 'https://github.com/NeesaSeregon',
       iconClass: 'fab fa-github'
     },
     {

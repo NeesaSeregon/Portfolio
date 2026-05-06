@@ -76,19 +76,43 @@ export class PortfolioService {
 
   readonly education: Education[] = [
     {
-      institution: 'Universidad / Centro de Estudios',
-      degree: 'Grado',
-      field: 'Ingeniería Informática',
-      startYear: 2017,
-      endYear: 2021,
-      description: 'Especialización en desarrollo de software y sistemas distribuidos.'
+      institution: 'Certiport - Microsoft',
+      degree: 'Certificación MS-900',
+      field: '365 Fundamentals',
+      startYear: 2025,
+      endYear: 2025,
+      description: 'Conocimientos basicos sobre la nube de Microsoft, sus aplicaciones como Teams, Word y SharePoint y sus servicios de software como servicio (SaaS)'
+    },
+      {
+      institution: 'Certiport - Microsoft',
+      degree: 'Certificación AZ-900',
+      field: 'Azure Fundamentals',
+      startYear: 2025,
+      endYear: 2025,
+      description: 'Conocimientos basicos sobre servicios en la nube de Microsoft Azure y conceptos generales de computacion en la nube.'
+    },
+      {
+      institution: 'Certiport - Microsoft',
+      degree: 'Certificación AI-900',
+      field: 'Azure AI Fundamentals',
+      startYear: 2025,
+      endYear: 2025,
+      description: 'Conocimientos basicos sobre conceptos de inteligencia artificial y como se aplican en los servicios en la nube de Microsoft Azure'
+    },
+      {
+      institution: 'Certiport - Microsoft',
+      degree: 'Certificación SC-900',
+      field: 'Security, Compilance, and Identity Fundamentals',
+      startYear: 2025,
+      endYear: 2025,
+      description: 'Conocimientos basicos sobre identidad, seguridad y cumplimiento normativo en la nube'
     },
     {
-      institution: 'Plataforma Online',
-      degree: 'Certificación',
-      field: 'Desarrollo Web Full Stack',
+      institution: 'C.I.F.P. Camino de la Miranda - Palencia',
+      degree: 'Grado superior',
+      field: 'Desarrollo de aplicaciones web',
       startYear: 2022,
-      endYear: 2022,
+      endYear: 2024,
       description: 'Formación intensiva en tecnologías web modernas.'
     }
   ];

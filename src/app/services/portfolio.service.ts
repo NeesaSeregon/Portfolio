@@ -122,7 +122,7 @@ export class PortfolioService {
       name: 'Este Portfolio',
       description: 'Portfolio personal desarrollado con Angular 18 y Bootstrap 5. Diseño responsive con múltiples secciones.',
       technologies: ['Angular', 'TypeScript', 'Bootstrap'],
-      githubUrl: 'https://github.com/',
+      githubUrl: 'https://github.com/NeesaSeregon/Portfolio',
       featured: true
     },
     {
@@ -130,7 +130,7 @@ export class PortfolioService {
       description: 'Aplicación para acortar URLs, autenticación de usuarios y panel de administración ademas de capacidad de analisis de uso de los links creados.',
       technologies: ['Angular', 'Symfony', 'MySQL', 'Bootstrap', 'TypeScript'],
       githubUrl: 'https://github.com/NeesaSeregon/shortnees',
-      liveUrl: 'shortnees.com',
+      liveUrl: 'https://shortnees.com/home',
       featured: true
     },
     {

@@ -36,10 +36,10 @@
             <hr class="my-4">
 
             <h4 class="h6 fw-bold mb-3">Redes sociales</h4>
-            <div class="d-flex gap-3">
+            <div class="d-flex gap-3 flex-wrap">
               @for (link of portfolio.socialLinks; track link.platform) {
                 <a [href]="link.url" target="_blank" rel="noopener noreferrer"
-                   class="social-btn btn btn-outline-secondary btn-sm"
+                   class="btn btn-outline-secondary btn-sm"
                    [title]="link.platform">
                   <i [class]="link.iconClass + ' me-1'"></i>{{ link.platform }}
                 </a>
@@ -53,22 +53,64 @@
         <div class="card border-0 shadow-sm h-100">
           <div class="card-body p-4">
             <h3 class="h5 fw-bold mb-4">Envíame un mensaje</h3>
-            <form>
+
+            @if (state === 'success') {
+              <div class="alert alert-success d-flex align-items-center gap-2" role="alert">
+                <i class="fas fa-check-circle"></i>
+                <span>¡Mensaje enviado! Te responderé lo antes posible.</span>
+              </div>
+            }
+
+            @if (state === 'error') {
+              <div class="alert alert-danger d-flex align-items-center gap-2" role="alert">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>Ha ocurrido un error. Inténtalo de nuevo o escríbeme directamente.</span>
+              </div>
+            }
+
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
               <div class="mb-3">
                 <label for="contactName" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="contactName" placeholder="Tu nombre">
+                <input type="text" class="form-control" id="contactName"
+                       formControlName="name"
+                       placeholder="Tu nombre"
+                       [class.is-invalid]="isInvalid('name')">
+                @if (isInvalid('name')) {
+                  <div class="invalid-feedback">Introduce tu nombre.</div>
+                }
               </div>
+
               <div class="mb-3">
                 <label for="contactEmail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="contactEmail" placeholder="tu@email.com">
+                <input type="email" class="form-control" id="contactEmail"
+                       formControlName="email"
+                       placeholder="tu@email.com"
+                       [class.is-invalid]="isInvalid('email')">
+                @if (isInvalid('email')) {
+                  <div class="invalid-feedback">Introduce un email válido.</div>
+                }
               </div>
-              <div class="mb-3">
+
+              <div class="mb-4">
                 <label for="contactMessage" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="contactMessage" rows="4"
-                          placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                <textarea class="form-control" id="contactMessage"
+                          formControlName="message"
+                          rows="4"
+                          placeholder="Cuéntame sobre tu proyecto..."
+                          [class.is-invalid]="isInvalid('message')"></textarea>
+                @if (isInvalid('message')) {
+                  <div class="invalid-feedback">El mensaje debe tener al menos 10 caracteres.</div>
+                }
               </div>
-              <button type="submit" class="btn btn-primary w-100">
-                <i class="fas fa-paper-plane me-2"></i>Enviar mensaje
+
+              <button type="submit" class="btn btn-primary w-100"
+                      [disabled]="state === 'sending'">
+                @if (state === 'sending') {
+                  <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                  Enviando...
+                } @else {
+                  <i class="fas fa-paper-plane me-2"></i>Enviar mensaje
+                }
               </button>
             </form>
           </div>

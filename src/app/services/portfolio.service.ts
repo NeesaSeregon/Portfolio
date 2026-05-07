@@ -5,7 +5,7 @@ import { Education, Experience, Project, Skill, SocialLink } from '../models/por
 export class PortfolioService {
 
   readonly name = 'Luis Torices Fernández';
-  readonly title = 'Desarrollador de Software';
+  readonly title = 'Desarrollador de Aplicaciones Web';
   readonly tagline = 'Apasionado por crear aplicaciones web modernas y eficientes.';
   readonly bio = `Soy un desarrollador con experiencia en el desarrollo de aplicaciones web,
     tanto en frontend como en backend. Me gusta aprender nuevas tecnologías y trabajar en equipo

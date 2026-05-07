@@ -18,5 +18,9 @@ export class NavbarComponent {
 
   scrollTo(sectionId: string) {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    const navCollapse = document.getElementById('navbarNav');
+    if (navCollapse?.classList.contains('show')) {
+      (document.querySelector('.navbar-toggler') as HTMLElement)?.click();
+    }
   }
 }

@@ -33,7 +33,7 @@ export class PortfolioService {
     {
       platform: 'Infojobs',
       url: 'https://www.infojobs.net/candidate/cv/view/index.xhtml',
-      iconClass: 'fa-address-card'
+      iconClass: 'fas fa-address-card'
     }
   ];
 
@@ -70,7 +70,7 @@ export class PortfolioService {
         'Participacion en su programa de formacion interno',
         'Colaboración en equipo de desarrollo de una tienda online.'
       ],
-      technologies: ['Java', 'SpringBoot', 'HTML', 'CSS', 'MySQL']
+      technologies: ['Java', 'Spring Boot', 'HTML', 'CSS', 'MySQL']
     }
   ];
 
@@ -132,13 +132,6 @@ export class PortfolioService {
       githubUrl: 'https://github.com/NeesaSeregon/shortnees',
       liveUrl: 'https://shortnees.com/home',
       featured: true
-    },
-    {
-      name: 'Proximamente',
-      description: '',
-      technologies: [],
-      githubUrl: '',
-      featured: false
     },
   ];
 }

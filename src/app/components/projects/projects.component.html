@@ -1,18 +1,18 @@
 <section id="projects" class="section-padding">
   <div class="container">
-    <h2 class="section-title text-center mb-5">Proyectos</h2>
+    <h2 class="section-title text-center mb-5">{{ i18n.t().projects.section }}</h2>
     <div class="row g-4">
-      @for (project of portfolio.projects; track project.name) {
+      @for (project of portfolio.projects; track project.name; let i = $index) {
         <div class="col-md-6 col-lg-6">
           <div class="card project-card border-0 shadow-sm h-100" [class.featured]="project.featured">
             @if (project.featured) {
               <div class="featured-badge">
-                <span class="badge bg-primary">Destacado</span>
+                <span class="badge bg-primary">{{ i18n.t().projects.featured }}</span>
               </div>
             }
             <div class="card-body p-4 d-flex flex-column">
-              <h3 class="card-title h5 fw-bold mb-2">{{ project.name }}</h3>
-              <p class="card-text text-muted flex-grow-1 mb-3">{{ project.description }}</p>
+              <h3 class="card-title h5 fw-bold mb-2">{{ i18n.t().projects.items[i].name }}</h3>
+              <p class="card-text text-muted flex-grow-1 mb-3">{{ i18n.t().projects.items[i].description }}</p>
 
               <div class="d-flex flex-wrap gap-2 mb-3">
                 @for (tech of project.technologies; track tech) {

@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { PortfolioService } from '../../services/portfolio.service';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-experience',
@@ -9,4 +10,5 @@ import { PortfolioService } from '../../services/portfolio.service';
 })
 export class ExperienceComponent {
   portfolio = inject(PortfolioService);
+  i18n = inject(TranslationService);
 }

@@ -29,3 +29,19 @@
 .nav-link:hover {
   color: var(--color-primary) !important;
 }
+
+.lang-toggle {
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  line-height: 1;
+}
+
+.lang-toggle:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}

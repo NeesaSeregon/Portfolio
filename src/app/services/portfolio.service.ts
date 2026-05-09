@@ -6,10 +6,8 @@ export class PortfolioService {
 
   readonly name = 'Luis Torices Fernández';
   readonly title = 'Desarrollador de Aplicaciones Web';
-  readonly tagline = 'Apasionado por crear aplicaciones web modernas y eficientes.';
-  readonly bio = `Soy un desarrollador con experiencia en el desarrollo de aplicaciones web,
-    tanto en frontend como en backend. Me gusta aprender nuevas tecnologías y trabajar en equipo
-    para crear productos de calidad. Busco nuevos retos donde seguir creciendo profesionalmente.`;
+  readonly tagline = 'Entusiasta de la tecnología y el software cuya meta personal es la elaboración de aplicaciones web modernas y eficientes.';
+  readonly bio = `Soy un desarrollador con experiencia en proyectos de desarrollo de aplicaciones web, tanto frontend como backend. Disfruto aprendiendo sobre nuevas tecnologías con el objetivo de crear productos de calidad. En lo personal, soy una persona extrovertida y sociable que valora el trabajo en equipo y el factor humano. Busco nuevos retos profesionales con los que poder crecer y alcanzar nuevas cotas.`;
   readonly email = 'luis.babuska@gmail.com';
   readonly location = 'España';
   readonly photoUrl = 'photo.jpg'; // Coloca tu foto en /public/photo.jpg

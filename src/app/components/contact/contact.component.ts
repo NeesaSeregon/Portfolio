@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { environment } from '../../../environments/environment';
 import { PortfolioService } from '../../services/portfolio.service';
+import { TranslationService } from '../../services/translation.service';
 
 type SendState = 'idle' | 'sending' | 'success' | 'error';
 
@@ -15,6 +16,7 @@ type SendState = 'idle' | 'sending' | 'success' | 'error';
 })
 export class ContactComponent {
   portfolio = inject(PortfolioService);
+  i18n = inject(TranslationService);
   private fb = inject(FormBuilder);
 
   form = this.fb.group({

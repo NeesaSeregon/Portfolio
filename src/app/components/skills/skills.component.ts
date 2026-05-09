@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { PortfolioService } from '../../services/portfolio.service';
+import { TranslationService } from '../../services/translation.service';
 import { Skill } from '../../models/portfolio.model';
 
 @Component({
@@ -10,13 +11,9 @@ import { Skill } from '../../models/portfolio.model';
 })
 export class SkillsComponent {
   portfolio = inject(PortfolioService);
+  i18n = inject(TranslationService);
 
-  readonly categories: { key: Skill['category']; label: string }[] = [
-    { key: 'frontend', label: 'Frontend' },
-    { key: 'backend', label: 'Backend' },
-    { key: 'tools', label: 'Herramientas' },
-    { key: 'other', label: 'Otros' },
-  ];
+  readonly categoryKeys: Skill['category'][] = ['frontend', 'backend', 'tools', 'other'];
 
   skillsByCategory(category: Skill['category']): Skill[] {
     return this.portfolio.skills.filter(s => s.category === category);

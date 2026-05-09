@@ -1,24 +1,24 @@
 <section id="experience" class="section-padding">
   <div class="container">
-    <h2 class="section-title text-center mb-5">Experiencia</h2>
+    <h2 class="section-title text-center mb-5">{{ i18n.t().experience.section }}</h2>
     <div class="row justify-content-center">
       <div class="col-lg-9">
         <div class="timeline">
-          @for (job of portfolio.experience; track job.company + job.startDate; let last = $last) {
+          @for (job of portfolio.experience; track job.company + job.startDate; let last = $last; let i = $index) {
             <div class="timeline-item" [class.last]="last">
               <div class="timeline-dot"></div>
               <div class="timeline-content card border-0 shadow-sm p-4">
                 <div class="d-flex flex-wrap justify-content-between align-items-start mb-2">
                   <div>
-                    <h3 class="h5 mb-1 fw-bold">{{ job.position }}</h3>
+                    <h3 class="h5 mb-1 fw-bold">{{ i18n.t().experience.jobs[i].position }}</h3>
                     <h4 class="h6 text-primary mb-0">{{ job.company }}</h4>
                   </div>
                   <span class="badge date-badge mt-1">
-                    {{ job.startDate }} — {{ job.endDate ?? 'Actualidad' }}
+                    {{ i18n.t().experience.jobs[i].startDate }} — {{ i18n.t().experience.jobs[i].endDate ?? i18n.t().experience.present }}
                   </span>
                 </div>
                 <ul class="mt-3 mb-3 ps-3">
-                  @for (item of job.description; track item) {
+                  @for (item of i18n.t().experience.jobs[i].description; track item) {
                     <li class="mb-1 text-muted">{{ item }}</li>
                   }
                 </ul>

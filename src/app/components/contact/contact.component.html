@@ -1,13 +1,13 @@
 <section id="contact" class="section-padding section-alt">
   <div class="container">
-    <h2 class="section-title text-center mb-2">Contacto</h2>
-    <p class="text-center text-muted mb-5">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+    <h2 class="section-title text-center mb-2">{{ i18n.t().contact.section }}</h2>
+    <p class="text-center text-muted mb-5">{{ i18n.t().contact.subtitle }}</p>
 
     <div class="row justify-content-center g-4">
       <div class="col-lg-4">
         <div class="card border-0 shadow-sm h-100">
           <div class="card-body p-4">
-            <h3 class="h5 fw-bold mb-4">Información de contacto</h3>
+            <h3 class="h5 fw-bold mb-4">{{ i18n.t().contact.info_title }}</h3>
 
             <div class="contact-info d-flex flex-column gap-3">
               <div class="d-flex align-items-center gap-3">
@@ -27,15 +27,15 @@
                   <i class="fas fa-map-marker-alt"></i>
                 </div>
                 <div>
-                  <small class="text-muted d-block">Ubicación</small>
-                  <span class="fw-medium">{{ portfolio.location }}</span>
+                  <small class="text-muted d-block">{{ i18n.t().contact.location_label }}</small>
+                  <span class="fw-medium">{{ i18n.t().portfolio.location }}</span>
                 </div>
               </div>
             </div>
 
             <hr class="my-4">
 
-            <h4 class="h6 fw-bold mb-3">Redes sociales</h4>
+            <h4 class="h6 fw-bold mb-3">{{ i18n.t().contact.socials_title }}</h4>
             <div class="d-flex gap-3 flex-wrap">
               @for (link of portfolio.socialLinks; track link.platform) {
                 <a [href]="link.url" target="_blank" rel="noopener noreferrer"
@@ -52,31 +52,31 @@
       <div class="col-lg-6">
         <div class="card border-0 shadow-sm h-100">
           <div class="card-body p-4">
-            <h3 class="h5 fw-bold mb-4">Envíame un mensaje</h3>
+            <h3 class="h5 fw-bold mb-4">{{ i18n.t().contact.form_title }}</h3>
 
             @if (state === 'success') {
               <div class="alert alert-success d-flex align-items-center gap-2" role="alert">
                 <i class="fas fa-check-circle"></i>
-                <span>¡Mensaje enviado! Te responderé lo antes posible.</span>
+                <span>{{ i18n.t().contact.success }}</span>
               </div>
             }
 
             @if (state === 'error') {
               <div class="alert alert-danger d-flex align-items-center gap-2" role="alert">
                 <i class="fas fa-exclamation-circle"></i>
-                <span>Ha ocurrido un error. Inténtalo de nuevo o escríbeme directamente.</span>
+                <span>{{ i18n.t().contact.error }}</span>
               </div>
             }
 
             <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
               <div class="mb-3">
-                <label for="contactName" class="form-label">Nombre</label>
+                <label for="contactName" class="form-label">{{ i18n.t().contact.name_label }}</label>
                 <input type="text" class="form-control" id="contactName"
                        formControlName="name"
-                       placeholder="Tu nombre"
+                       [placeholder]="i18n.t().contact.name_placeholder"
                        [class.is-invalid]="isInvalid('name')">
                 @if (isInvalid('name')) {
-                  <div class="invalid-feedback">Introduce tu nombre.</div>
+                  <div class="invalid-feedback">{{ i18n.t().contact.name_error }}</div>
                 }
               </div>
 
@@ -84,22 +84,22 @@
                 <label for="contactEmail" class="form-label">Email</label>
                 <input type="email" class="form-control" id="contactEmail"
                        formControlName="email"
-                       placeholder="tu@email.com"
+                       [placeholder]="i18n.t().contact.email_placeholder"
                        [class.is-invalid]="isInvalid('email')">
                 @if (isInvalid('email')) {
-                  <div class="invalid-feedback">Introduce un email válido.</div>
+                  <div class="invalid-feedback">{{ i18n.t().contact.email_error }}</div>
                 }
               </div>
 
               <div class="mb-4">
-                <label for="contactMessage" class="form-label">Mensaje</label>
+                <label for="contactMessage" class="form-label">{{ i18n.t().contact.message_label }}</label>
                 <textarea class="form-control" id="contactMessage"
                           formControlName="message"
                           rows="4"
-                          placeholder="Cuéntame sobre tu proyecto..."
+                          [placeholder]="i18n.t().contact.message_placeholder"
                           [class.is-invalid]="isInvalid('message')"></textarea>
                 @if (isInvalid('message')) {
-                  <div class="invalid-feedback">El mensaje debe tener al menos 10 caracteres.</div>
+                  <div class="invalid-feedback">{{ i18n.t().contact.message_error }}</div>
                 }
               </div>
 
@@ -107,9 +107,9 @@
                       [disabled]="state === 'sending'">
                 @if (state === 'sending') {
                   <span class="spinner-border spinner-border-sm me-2" role="status"></span>
-                  Enviando...
+                  {{ i18n.t().contact.sending }}
                 } @else {
-                  <i class="fas fa-paper-plane me-2"></i>Enviar mensaje
+                  <i class="fas fa-paper-plane me-2"></i>{{ i18n.t().contact.submit }}
                 }
               </button>
             </form>

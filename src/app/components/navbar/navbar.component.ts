@@ -1,5 +1,6 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { PortfolioService } from '../../services/portfolio.service';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,7 @@ import { PortfolioService } from '../../services/portfolio.service';
 })
 export class NavbarComponent {
   portfolio = inject(PortfolioService);
+  i18n = inject(TranslationService);
   isScrolled = false;
 
   @HostListener('window:scroll')

@@ -111,7 +111,7 @@ export class PortfolioService {
       field: 'Desarrollo de aplicaciones web',
       startYear: 2022,
       endYear: 2024,
-      description: 'Formación intensiva en tecnologías web modernas.'
+      description: 'Formación intensiva en tecnologías web modernas. Opcion bilingüe'
     }
   ];
 

@@ -33,6 +33,7 @@ const TRANSLATIONS = {
         frontend: 'Frontend',
         backend: 'Backend',
         tools: 'Herramientas',
+        ai: 'Desarrollo con IA',
         other: 'Otros',
       },
     },
@@ -88,6 +89,10 @@ const TRANSLATIONS = {
       section: 'Proyectos',
       featured: 'Destacado',
       items: [
+        {
+          name: 'Pathfinder-vtt',
+          description: 'Mesa virtual (VTT) para jugar a Pathfinder 1.ª edición online. Monorepo Nx con frontend Angular zoneless basado en signals, backend NestJS y sincronización en tiempo real por WebSocket sobre PostgreSQL.',
+        },
         {
           name: 'Este Portfolio',
           description: 'Portfolio personal desarrollado con Angular 18 y Bootstrap 5. Diseño responsive con múltiples secciones.',
@@ -150,6 +155,7 @@ const TRANSLATIONS = {
         frontend: 'Frontend',
         backend: 'Backend',
         tools: 'Tools',
+        ai: 'AI-Assisted Development',
         other: 'Other',
       },
     },
@@ -205,6 +211,10 @@ const TRANSLATIONS = {
       section: 'Projects',
       featured: 'Featured',
       items: [
+        {
+          name: 'Pathfinder-vtt',
+          description: 'Virtual tabletop (VTT) for playing Pathfinder 1st Edition online. Nx monorepo with a zoneless, signals-based Angular frontend, a NestJS backend and real-time sync over WebSockets on PostgreSQL.',
+        },
         {
           name: 'This Portfolio',
           description: 'Personal portfolio built with Angular 18 and Bootstrap 5. Responsive design with multiple sections.',

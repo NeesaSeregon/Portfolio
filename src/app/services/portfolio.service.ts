@@ -46,8 +46,12 @@ export class PortfolioService {
     { name: 'Java', iconClass: 'devicon-java-plain colored', category: 'backend' },
     { name: 'PHP', iconClass: 'devicon-php-plain colored', category: 'backend' },
     { name: 'Symfony', iconClass: 'devicon-symfony-plain', category: 'backend' },
+    { name: 'NestJS', iconClass: 'devicon-nestjs-plain colored', category: 'backend' },
+    { name: 'Node.js', iconClass: 'devicon-nodejs-plain colored', category: 'backend' },
     { name: 'SQL', iconClass: 'devicon-mysql-plain colored', category: 'backend' },
+    { name: 'PostgreSQL', iconClass: 'devicon-postgresql-plain colored', category: 'backend' },
     { name: 'REST APIs', iconClass: 'fas fa-plug', category: 'backend' },
+    { name: 'Socket.IO', iconClass: 'devicon-socketio-original', category: 'backend' },
     // Tools
     { name: 'Git', iconClass: 'devicon-git-plain colored', category: 'tools' },
     { name: 'Docker', iconClass: 'devicon-docker-plain colored', category: 'tools' },
@@ -55,6 +59,10 @@ export class PortfolioService {
     { name: 'GitHub', iconClass: 'devicon-github-original', category: 'tools' },
     { name: 'GitLab', iconClass: 'devicon-gitlab-plain colored', category: 'tools' },
     { name: 'Jira', iconClass: 'devicon-jira-plain colored', category: 'tools' },
+    { name: 'Nx', iconClass: 'fas fa-diagram-project', category: 'tools' },
+    // IA
+    { name: 'Claude', iconClass: 'fas fa-robot', category: 'ai' },
+    { name: 'Claude Code', iconClass: 'fas fa-terminal', category: 'ai' },
   ];
 
   readonly experience: Experience[] = [
@@ -117,19 +125,25 @@ export class PortfolioService {
 
   readonly projects: Project[] = [
     {
+      name: 'Pathfinder-vtt',
+      description: 'Mesa virtual (VTT) para jugar a Pathfinder 1.ª edición online. Monorepo Nx con frontend Angular zoneless basado en signals, backend NestJS y sincronización en tiempo real por WebSocket sobre PostgreSQL.',
+      technologies: ['Angular', 'NestJS', 'Node', 'TypeScript', 'PostgreSQL', 'TypeORM', 'Socket.IO', 'Nx'],
+      githubUrl: 'https://github.com/NeesaSeregon/pathfinder-vtt',
+      liveUrl: 'https://rolnees.com',
+      featured: true
+    },
+    {
       name: 'Este Portfolio',
       description: 'Portfolio personal desarrollado con Angular 18 y Bootstrap 5. Diseño responsive con múltiples secciones.',
       technologies: ['Angular', 'TypeScript', 'Bootstrap'],
-      githubUrl: 'https://github.com/NeesaSeregon/Portfolio',
-      featured: true
+      githubUrl: 'https://github.com/NeesaSeregon/Portfolio'
     },
     {
       name: 'Acortador de Links',
       description: 'Aplicación para acortar URLs, autenticación de usuarios y panel de administración ademas de capacidad de analisis de uso de los links creados.',
       technologies: ['Angular', 'Symfony', 'MySQL', 'Bootstrap', 'TypeScript'],
       githubUrl: 'https://github.com/NeesaSeregon/shortnees',
-      liveUrl: 'https://shortnees.com/home',
-      featured: true
+      liveUrl: 'https://shortnees.com/home'
     },
   ];
 }

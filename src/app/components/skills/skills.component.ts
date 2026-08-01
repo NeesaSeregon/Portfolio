@@ -13,7 +13,7 @@ export class SkillsComponent {
   portfolio = inject(PortfolioService);
   i18n = inject(TranslationService);
 
-  readonly categoryKeys: Skill['category'][] = ['frontend', 'backend', 'tools', 'other'];
+  readonly categoryKeys: Skill['category'][] = ['frontend', 'backend', 'tools', 'ai', 'other'];
 
   skillsByCategory(category: Skill['category']): Skill[] {
     return this.portfolio.skills.filter(s => s.category === category);

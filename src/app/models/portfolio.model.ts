@@ -1,7 +1,7 @@
 export interface Skill {
   name: string;
   iconClass: string;
-  category: 'frontend' | 'backend' | 'tools' | 'other';
+  category: 'frontend' | 'backend' | 'tools' | 'ai' | 'other';
 }
 
 export interface Experience {

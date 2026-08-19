@@ -80,8 +80,8 @@ const TRANSLATIONS = {
         },
         {
           degree: 'Grado Superior',
-          field: 'Desarrollo de Aplicaciones Web',
-          description: 'Formación intensiva en tecnologías web modernas.',
+          field: 'Desarrollo de Aplicaciones Web (modalidad bilingüe)',
+          description: 'Formación intensiva en tecnologías web modernas, cursada en la modalidad bilingüe español-inglés.',
         },
       ],
     },
@@ -202,8 +202,8 @@ const TRANSLATIONS = {
         },
         {
           degree: 'Higher Degree',
-          field: 'Web Application Development',
-          description: 'Intensive training in modern web technologies.',
+          field: 'Web Application Development (bilingual programme)',
+          description: 'Intensive training in modern web technologies, completed in the Spanish-English bilingual programme.',
         },
       ],
     },

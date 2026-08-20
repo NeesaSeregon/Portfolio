@@ -1,29 +1,38 @@
 <section id="about" class="section-padding">
   <div class="container">
-    <h2 class="section-title text-center mb-5">{{ i18n.t().about.section }}</h2>
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="card border-0 shadow-sm p-4">
-          <div class="row g-4 align-items-center">
-            <div class="col-md-5 text-center">
-              <img [src]="portfolio.photoUrl" [alt]="portfolio.name"
-                   class="img-fluid rounded-3 about-photo"
-                   onerror="this.src='https://via.placeholder.com/280x320/6c757d/ffffff?text=Foto'">
-            </div>
-            <div class="col-md-7">
-              <h3 class="h4 mb-3">{{ portfolio.name }}</h3>
-              <p class="text-muted mb-3">
-                <i class="fas fa-map-marker-alt me-2"></i>{{ i18n.t().portfolio.location }}
-              </p>
-              <p class="mb-3">{{ i18n.t().portfolio.bio }}</p>
-              <p class="mb-0">
-                <i class="fas fa-envelope me-2 text-primary"></i>
-                <a [href]="'mailto:' + portfolio.email">{{ portfolio.email }}</a>
-              </p>
-            </div>
-          </div>
-        </div>
+    <div class="about-grid">
+
+      <div class="about-heading">
+        <span class="section-eyebrow">01 — {{ i18n.t().about.section }}</span>
+        <h2 class="section-heading">{{ i18n.t().about.headline }}</h2>
+        <span class="section-rule" aria-hidden="true"></span>
       </div>
+
+      <div class="about-body">
+        <p class="about-lead text-balance">{{ i18n.t().portfolio.bio }}</p>
+        <p class="about-text text-balance">{{ i18n.t().portfolio.bio_personal }}</p>
+
+        <dl class="about-facts">
+          <div class="about-fact">
+            <dt class="meta-label">{{ i18n.t().contact.location_label }}</dt>
+            <dd>{{ i18n.t().portfolio.location }}</dd>
+          </div>
+          <div class="about-fact">
+            <dt class="meta-label">{{ i18n.t().about.education_label }}</dt>
+            <dd>{{ i18n.t().about.education_value }}</dd>
+          </div>
+          <div class="about-fact">
+            <dt class="meta-label">{{ i18n.t().about.languages_label }}</dt>
+            <dd>{{ i18n.t().about.languages_value }}</dd>
+          </div>
+        </dl>
+
+        <p class="about-email">
+          <i class="fas fa-envelope"></i>
+          <a [href]="'mailto:' + portfolio.email">{{ portfolio.email }}</a>
+        </p>
+      </div>
+
     </div>
   </div>
 </section>

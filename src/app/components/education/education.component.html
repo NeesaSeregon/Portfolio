@@ -1,34 +1,60 @@
-<section id="education" class="section-padding">
+<section id="education" class="section-padding section-alt">
   <div class="container">
-    <h2 class="section-title text-center mb-5">{{ i18n.t().education.section }}</h2>
-    <div class="row justify-content-center">
-      <div class="col-lg-9">
-        <div class="timeline">
-          @for (edu of portfolio.education; track edu.institution + edu.startYear; let last = $last; let i = $index) {
-            <div class="timeline-item" [class.last]="last">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content card border-0 shadow-sm p-4">
-                <div class="d-flex flex-wrap justify-content-between align-items-start mb-2">
-                  <div>
-                    <h3 class="h5 mb-1 fw-bold">
-                      {{ i18n.t().education.entries[i].degree }} {{ i18n.t().education.connector }} {{ i18n.t().education.entries[i].field }}
-                    </h3>
-                    <h4 class="h6 text-primary mb-0">
-                      <i class="fas fa-university me-1"></i>{{ edu.institution }}
-                    </h4>
-                  </div>
-                  <span class="badge date-badge mt-1">
-                    {{ edu.startYear }} — {{ edu.endYear ?? i18n.t().education.present }}
-                  </span>
-                </div>
-                @if (i18n.t().education.entries[i].description) {
-                  <p class="mt-2 mb-0 text-muted">{{ i18n.t().education.entries[i].description }}</p>
-                }
-              </div>
-            </div>
+    <div class="education-header">
+      <span class="section-eyebrow">04 — {{ i18n.t().education.section }}</span>
+      <h2 class="section-heading">{{ i18n.t().education.headline }}</h2>
+    </div>
+
+    @for (entry of portfolio.degrees; track entry.edu.institution + entry.edu.startYear) {
+      <article class="surface-card degree-card">
+        <div class="degree-main">
+          <h3 class="degree-title">
+            {{ i18n.t().education.entries[entry.index].degree }}
+            {{ i18n.t().education.connector }}
+            {{ i18n.t().education.entries[entry.index].field }}
+          </h3>
+          <p class="degree-institution">
+            <i class="fas fa-university"></i>{{ entry.edu.institution }}
+          </p>
+          @if (i18n.t().education.entries[entry.index].description) {
+            <p class="degree-description text-balance">
+              {{ i18n.t().education.entries[entry.index].description }}
+            </p>
           }
         </div>
+
+        <div class="degree-meta">
+          <span class="date-badge">
+            {{ entry.edu.startYear }} — {{ entry.edu.endYear ?? i18n.t().education.present }}
+          </span>
+          @if (i18n.t().education.entries[entry.index].badge) {
+            <span class="flag-badge">{{ i18n.t().education.entries[entry.index].badge }}</span>
+          }
+        </div>
+      </article>
+    }
+
+    @if (portfolio.certifications.length) {
+      <div class="certs-label">
+        <span class="meta-label">
+          {{ i18n.t().education.certs_label }} · {{ portfolio.certifications[0].edu.startYear }}
+        </span>
+        <span class="hairline certs-rule" aria-hidden="true"></span>
       </div>
-    </div>
+
+      <div class="certs-grid">
+        @for (entry of portfolio.certifications; track entry.edu.degree) {
+          <article class="surface-card cert-card">
+            <span class="cert-code">{{ entry.edu.code ?? entry.edu.degree }}</span>
+            <span class="cert-name">{{ i18n.t().education.entries[entry.index].field }}</span>
+            @if (i18n.t().education.entries[entry.index].description) {
+              <span class="cert-description">
+                {{ i18n.t().education.entries[entry.index].description }}
+              </span>
+            }
+          </article>
+        }
+      </div>
+    }
   </div>
 </section>

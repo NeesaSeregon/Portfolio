@@ -1,42 +1,63 @@
-<section id="projects" class="section-padding section-alt">
+<section id="projects" class="section-padding">
   <div class="container">
-    <h2 class="section-title text-center mb-5">{{ i18n.t().projects.section }}</h2>
-    <div class="row g-4">
+    <div class="projects-header">
+      <div class="projects-title">
+        <span class="section-eyebrow">05 — {{ i18n.t().projects.section }}</span>
+        <h2 class="section-heading">{{ i18n.t().projects.headline }}</h2>
+      </div>
+      <a class="btn-ghost projects-all" href="https://github.com/NeesaSeregon" target="_blank"
+         rel="noopener noreferrer">
+        {{ i18n.t().projects.all_github }}
+        <i class="fas fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>
+
+    <div class="projects-grid">
       @for (project of portfolio.projects; track project.name; let i = $index) {
-        <div class="col-md-6 col-lg-6">
-          <div class="card project-card border-0 shadow-sm h-100" [class.featured]="project.featured">
-            @if (project.featured) {
-              <div class="featured-badge">
-                <span class="badge bg-primary">{{ i18n.t().projects.featured }}</span>
-              </div>
-            }
-            <div class="card-body p-4 d-flex flex-column">
-              <h3 class="card-title h5 fw-bold mb-2">{{ i18n.t().projects.items[i].name }}</h3>
-              <p class="card-text text-muted flex-grow-1 mb-3">{{ i18n.t().projects.items[i].description }}</p>
+        <article class="surface-card project-card" [class.featured]="project.featured">
+          @if (project.imageUrl) {
+            <div class="project-media">
+              <span class="project-media-fallback">
+                <i class="fas fa-image"></i>
+                <span>{{ i18n.t().projects.preview_pending }}</span>
+              </span>
+              <img [src]="project.imageUrl" [alt]="i18n.t().projects.items[i].name"
+                   loading="lazy" onerror="this.style.display='none'">
+            </div>
+          }
 
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                @for (tech of project.technologies; track tech) {
-                  <span class="badge tech-badge">{{ tech }}</span>
-                }
-              </div>
+          <div class="project-body">
+            <div class="project-heading">
+              <h3 class="project-name">{{ i18n.t().projects.items[i].name }}</h3>
+              @if (project.featured) {
+                <span class="featured-badge">{{ i18n.t().projects.featured }}</span>
+              }
+            </div>
 
-              <div class="d-flex gap-2 flex-wrap">
-                @if (project.githubUrl) {
-                  <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer"
-                     class="btn btn-sm btn-github">
-                    <i class="fab fa-github me-1"></i>GitHub
-                  </a>
-                }
-                @if (project.liveUrl) {
-                  <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer"
-                     class="btn btn-sm btn-outline-primary">
-                    <i class="fas fa-external-link-alt me-1"></i>Demo
-                  </a>
-                }
-              </div>
+            <p class="project-description text-balance">{{ i18n.t().projects.items[i].description }}</p>
+
+            <div class="project-tech">
+              @for (tech of project.technologies; track tech) {
+                <span class="tech-badge">{{ tech }}</span>
+              }
+            </div>
+
+            <div class="project-actions">
+              @if (project.liveUrl) {
+                <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="btn-accent">
+                  {{ i18n.t().projects.live }}
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              }
+              @if (project.githubUrl) {
+                <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+                  <i class="fab fa-github"></i>
+                  {{ i18n.t().projects.code }}
+                </a>
+              }
             </div>
           </div>
-        </div>
+        </article>
       }
     </div>
   </div>

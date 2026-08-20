@@ -1,24 +1,25 @@
-<section id="skills" class="section-padding">
+<section id="skills" class="section-padding section-alt">
   <div class="container">
-    <h2 class="section-title text-center mb-5">{{ i18n.t().skills.section }}</h2>
-    <div class="row g-4">
+    <div class="skills-header">
+      <div class="skills-title">
+        <span class="section-eyebrow">02 — {{ i18n.t().skills.section }}</span>
+        <h2 class="section-heading">{{ i18n.t().skills.headline }}</h2>
+      </div>
+      <p class="section-lead skills-intro text-balance">{{ i18n.t().skills.intro }}</p>
+    </div>
+
+    <div class="skills-grid">
       @for (key of categoryKeys; track key) {
         @if (hasCategory(key)) {
-          <div class="col-md-6 col-lg-3">
-            <div class="card border-0 shadow-sm h-100">
-              <div class="card-body p-4">
-                <h4 class="card-title h6 text-uppercase text-primary fw-bold mb-4">
-                  {{ i18n.t().skills.categories[key] }}
-                </h4>
-                <div class="skills-grid">
-                  @for (skill of skillsByCategory(key); track skill.name) {
-                    <div class="skill-item">
-                      <i [class]="skill.iconClass"></i>
-                      <span>{{ skill.name }}</span>
-                    </div>
-                  }
-                </div>
-              </div>
+          <div class="surface-card skill-card">
+            <h3 class="skill-card-title">{{ i18n.t().skills.categories[key] }}</h3>
+            <div class="skill-chips">
+              @for (skill of skillsByCategory(key); track skill.name) {
+                <span class="skill-chip">
+                  <i [class]="skill.iconClass"></i>
+                  <span>{{ skill.name }}</span>
+                </span>
+              }
             </div>
           </div>
         }

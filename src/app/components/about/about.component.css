@@ -1,4 +1,111 @@
-.about-photo {
-  max-width: 260px;
-  width: 100%;
+.about-grid {
+  display: grid;
+  grid-template-columns: clamp(16rem, 22vw, 22rem) minmax(0, 1fr);
+  gap: clamp(2.5rem, 4.5vw, 5rem);
+  align-items: start;
+}
+
+.about-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding-top: 0.35rem;
+}
+
+.about-lead {
+  margin: 0;
+  max-width: 50rem;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--color-text-soft);
+}
+
+.about-text {
+  margin: 0;
+  max-width: 50rem;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+.about-facts {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 0;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: var(--color-surface-card);
+  overflow: hidden;
+}
+
+.about-fact {
+  flex: 1 1 12rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.35rem;
+  border-right: 1px solid var(--color-border);
+}
+
+.about-fact:last-child {
+  border-right: 0;
+}
+
+.about-fact dt {
+  margin: 0;
+}
+
+.about-fact dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-soft);
+}
+
+.about-email {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.about-email i {
+  color: var(--color-primary);
+}
+
+.about-email a {
+  color: var(--color-text-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.1rem;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.about-email a:hover {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+@media (max-width: 991.98px) {
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .about-fact {
+    flex-basis: 100%;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .about-fact:last-child {
+    border-bottom: 0;
+  }
 }

@@ -5,12 +5,17 @@ import { Education, Experience, Project, Skill, SocialLink } from '../models/por
 export class PortfolioService {
 
   readonly name = 'Luis Torices Fernández';
+  readonly shortName = 'Luis Torices';
+  readonly lastName = 'Fernández';
   readonly title = 'Desarrollador de Aplicaciones Web';
   readonly tagline = 'Entusiasta de la tecnología y el software cuya meta personal es la elaboración de aplicaciones web modernas y eficientes.';
   readonly bio = `Soy un desarrollador con experiencia en proyectos de desarrollo de aplicaciones web, tanto frontend como backend. Disfruto aprendiendo sobre nuevas tecnologías con el objetivo de crear productos de calidad. En lo personal, soy una persona extrovertida y sociable que valora el trabajo en equipo y el factor humano. Busco nuevos retos profesionales con los que poder crecer y alcanzar nuevas cotas.`;
   readonly email = 'luis.babuska@gmail.com';
   readonly location = 'España';
   readonly photoUrl = 'photo.jpg'; // Coloca tu foto en /public/photo.jpg
+
+  /** Stack que se muestra en la tira inferior del hero. */
+  readonly heroStack: string[] = ['Angular', 'TypeScript', 'NestJS', 'Java', 'PostgreSQL', 'Docker'];
 
   readonly socialLinks: SocialLink[] = [
     {
@@ -83,7 +88,9 @@ export class PortfolioService {
   readonly education: Education[] = [
     {
       institution: 'Certiport - Microsoft',
+      type: 'certification',
       degree: 'Certificación MS-900',
+      code: 'MS-900',
       field: '365 Fundamentals',
       startYear: 2025,
       endYear: 2025,
@@ -91,7 +98,9 @@ export class PortfolioService {
     },
       {
       institution: 'Certiport - Microsoft',
+      type: 'certification',
       degree: 'Certificación AZ-900',
+      code: 'AZ-900',
       field: 'Azure Fundamentals',
       startYear: 2025,
       endYear: 2025,
@@ -99,7 +108,9 @@ export class PortfolioService {
     },
       {
       institution: 'Certiport - Microsoft',
+      type: 'certification',
       degree: 'Certificación AI-900',
+      code: 'AI-900',
       field: 'Azure AI Fundamentals',
       startYear: 2025,
       endYear: 2025,
@@ -107,7 +118,9 @@ export class PortfolioService {
     },
       {
       institution: 'Certiport - Microsoft',
+      type: 'certification',
       degree: 'Certificación SC-900',
+      code: 'SC-900',
       field: 'Security, Compilance, and Identity Fundamentals',
       startYear: 2025,
       endYear: 2025,
@@ -115,11 +128,12 @@ export class PortfolioService {
     },
     {
       institution: 'C.I.F.P. Camino de la Miranda - Palencia',
+      type: 'degree',
       degree: 'Grado superior',
       field: 'Desarrollo de aplicaciones web',
       startYear: 2022,
       endYear: 2024,
-      description: 'Formación intensiva en tecnologías web modernas. Opcion bilingüe'
+      description: 'Formación intensiva en tecnologías web modernas, cursada en la modalidad bilingüe español-inglés.'
     }
   ];
 
@@ -130,6 +144,7 @@ export class PortfolioService {
       technologies: ['Angular', 'NestJS', 'Node', 'TypeScript', 'PostgreSQL', 'TypeORM', 'Socket.IO', 'Nx'],
       githubUrl: 'https://github.com/NeesaSeregon/pathfinder-vtt',
       liveUrl: 'https://rolnees.com',
+      imageUrl: 'projects/pathfinder-vtt.png',
       featured: true
     },
     {
@@ -143,7 +158,27 @@ export class PortfolioService {
       description: 'Aplicación para acortar URLs, autenticación de usuarios y panel de administración ademas de capacidad de analisis de uso de los links creados.',
       technologies: ['Angular', 'Symfony', 'MySQL', 'Bootstrap', 'TypeScript'],
       githubUrl: 'https://github.com/NeesaSeregon/shortnees',
-      liveUrl: 'https://shortnees.com/home'
+      liveUrl: 'https://shortnees.com/home',
+      imageUrl: 'projects/shortnees.png'
     },
   ];
+
+  /** Titulaciones regladas, en el orden original del array `education`. */
+  get degrees() {
+    return this.education
+      .map((edu, index) => ({ edu, index }))
+      .filter(entry => entry.edu.type !== 'certification');
+  }
+
+  /** Certificaciones, en el orden original del array `education`. */
+  get certifications() {
+    return this.education
+      .map((edu, index) => ({ edu, index }))
+      .filter(entry => entry.edu.type === 'certification');
+  }
+
+  /** Proyecto marcado como destacado, si lo hay. */
+  get featuredProject(): Project | undefined {
+    return this.projects.find(project => project.featured);
+  }
 }

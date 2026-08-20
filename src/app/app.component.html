@@ -1,16 +1,19 @@
 <app-navbar></app-navbar>
 <app-hero></app-hero>
 <app-about></app-about>
-<app-projects></app-projects>
 <app-skills></app-skills>
 <app-experience></app-experience>
 <app-education></app-education>
+<app-projects></app-projects>
 <app-contact></app-contact>
 
-<footer class="footer text-center py-4">
-  <div class="container">
-    <p class="mb-0 text-muted small">
-      2026 Luis Torices &middot; {{ i18n.t().footer }}
-    </p>
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-copy">&copy; 2026 {{ portfolio.name }}</span>
+    <span class="footer-meta">{{ i18n.t().footer }}</span>
+    <button type="button" class="footer-top" (click)="scrollTop()">
+      {{ i18n.t().footer_top }}
+      <i class="fas fa-arrow-up"></i>
+    </button>
   </div>
 </footer>

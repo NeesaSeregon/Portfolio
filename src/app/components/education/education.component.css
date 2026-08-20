@@ -1,39 +1,132 @@
-.timeline {
-  position: relative;
-  padding-left: 2rem;
+.education-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 2.75rem;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0.5rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: var(--color-border);
+.degree-card {
+  border-left: 3px solid var(--color-primary);
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.timeline-item {
-  position: relative;
-  margin-bottom: 2rem;
+.degree-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-.timeline-item.last {
-  margin-bottom: 0;
+.degree-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--color-text-bright);
 }
 
-.timeline-dot {
-  position: absolute;
-  left: -1.65rem;
-  top: 1.25rem;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  border: 3px solid var(--color-surface);
-  box-shadow: 0 0 0 2px var(--color-primary);
+.degree-institution {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-primary);
 }
 
-.timeline-content {
-  margin-left: 0.5rem;
+.degree-description {
+  margin: 0.35rem 0 0;
+  max-width: 42rem;
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.degree-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.certs-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+}
+
+.certs-rule {
+  flex-grow: 1;
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.cert-card {
+  padding: 1.35rem 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cert-code {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.cert-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-text);
+}
+
+.cert-description {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 1199.98px) {
+  .certs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767.98px) {
+  .degree-card {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.35rem 1.25rem;
+  }
+
+  .degree-meta {
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-start;
+  }
+
+  .cert-description {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .certs-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

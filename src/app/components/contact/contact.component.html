@@ -1,121 +1,117 @@
 <section id="contact" class="section-padding section-alt">
   <div class="container">
-    <h2 class="section-title text-center mb-2">{{ i18n.t().contact.section }}</h2>
-    <p class="text-center text-muted mb-5">{{ i18n.t().contact.subtitle }}</p>
+    <div class="contact-intro">
+      <span class="section-eyebrow">06 — {{ i18n.t().contact.section }}</span>
+      <h2 class="section-heading contact-headline">{{ i18n.t().contact.headline }}</h2>
+      <p class="section-lead contact-subtitle text-balance">{{ i18n.t().contact.subtitle }}</p>
+    </div>
 
-    <div class="row justify-content-center g-4">
-      <div class="col-lg-4">
-        <div class="card border-0 shadow-sm h-100">
-          <div class="card-body p-4">
-            <h3 class="h5 fw-bold mb-4">{{ i18n.t().contact.info_title }}</h3>
+    <div class="contact-grid">
 
-            <div class="contact-info d-flex flex-column gap-3">
-              <div class="d-flex align-items-center gap-3">
-                <div class="contact-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">Email</small>
-                  <a [href]="'mailto:' + portfolio.email" class="fw-medium text-decoration-none">
-                    {{ portfolio.email }}
-                  </a>
-                </div>
-              </div>
+      <div class="surface-card contact-card">
+        <h3 class="contact-card-title">{{ i18n.t().contact.info_title }}</h3>
 
-              <div class="d-flex align-items-center gap-3">
-                <div class="contact-icon">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div>
-                  <small class="text-muted d-block">{{ i18n.t().contact.location_label }}</small>
-                  <span class="fw-medium">{{ i18n.t().portfolio.location }}</span>
-                </div>
-              </div>
+        <div class="contact-rows">
+          <div class="contact-row">
+            <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+            <div>
+              <span class="meta-label">Email</span>
+              <a [href]="'mailto:' + portfolio.email" class="contact-value">{{ portfolio.email }}</a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+            <div>
+              <span class="meta-label">{{ i18n.t().contact.location_label }}</span>
+              <span class="contact-value">{{ i18n.t().portfolio.location }}</span>
+            </div>
+          </div>
+        </div>
+
+        <span class="hairline"></span>
+
+        <div class="contact-socials">
+          <span class="meta-label">{{ i18n.t().contact.socials_title }}</span>
+          <div class="contact-social-links">
+            @for (link of portfolio.socialLinks; track link.platform) {
+              <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+                 class="btn-ghost contact-social" [title]="link.platform">
+                <i [class]="link.iconClass"></i>{{ link.platform }}
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="surface-card contact-card">
+        <h3 class="contact-card-title">{{ i18n.t().contact.form_title }}</h3>
+
+        @if (state === 'success') {
+          <div class="form-alert form-alert-success" role="alert">
+            <i class="fas fa-check-circle"></i>
+            <span>{{ i18n.t().contact.success }}</span>
+          </div>
+        }
+
+        @if (state === 'error') {
+          <div class="form-alert form-alert-error" role="alert">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>{{ i18n.t().contact.error }}</span>
+          </div>
+        }
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="contactName">{{ i18n.t().contact.name_label }}</label>
+              <input type="text" id="contactName" formControlName="name"
+                     [placeholder]="i18n.t().contact.name_placeholder"
+                     [class.is-invalid]="isInvalid('name')">
+              @if (isInvalid('name')) {
+                <span class="field-error">
+                  <i class="fas fa-circle-exclamation"></i>{{ i18n.t().contact.name_error }}
+                </span>
+              }
             </div>
 
-            <hr class="my-4">
-
-            <h4 class="h6 fw-bold mb-3">{{ i18n.t().contact.socials_title }}</h4>
-            <div class="d-flex gap-3 flex-wrap">
-              @for (link of portfolio.socialLinks; track link.platform) {
-                <a [href]="link.url" target="_blank" rel="noopener noreferrer"
-                   class="btn btn-outline-secondary btn-sm"
-                   [title]="link.platform">
-                  <i [class]="link.iconClass + ' me-1'"></i>{{ link.platform }}
-                </a>
+            <div class="form-field">
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" formControlName="email"
+                     [placeholder]="i18n.t().contact.email_placeholder"
+                     [class.is-invalid]="isInvalid('email')">
+              @if (isInvalid('email')) {
+                <span class="field-error">
+                  <i class="fas fa-circle-exclamation"></i>{{ i18n.t().contact.email_error }}
+                </span>
               }
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="col-lg-6">
-        <div class="card border-0 shadow-sm h-100">
-          <div class="card-body p-4">
-            <h3 class="h5 fw-bold mb-4">{{ i18n.t().contact.form_title }}</h3>
-
-            @if (state === 'success') {
-              <div class="alert alert-success d-flex align-items-center gap-2" role="alert">
-                <i class="fas fa-check-circle"></i>
-                <span>{{ i18n.t().contact.success }}</span>
-              </div>
+          <div class="form-field">
+            <label for="contactMessage">{{ i18n.t().contact.message_label }}</label>
+            <textarea id="contactMessage" formControlName="message" rows="4"
+                      [placeholder]="i18n.t().contact.message_placeholder"
+                      [class.is-invalid]="isInvalid('message')"></textarea>
+            @if (isInvalid('message')) {
+              <span class="field-error">
+                <i class="fas fa-circle-exclamation"></i>{{ i18n.t().contact.message_error }}
+              </span>
             }
-
-            @if (state === 'error') {
-              <div class="alert alert-danger d-flex align-items-center gap-2" role="alert">
-                <i class="fas fa-exclamation-circle"></i>
-                <span>{{ i18n.t().contact.error }}</span>
-              </div>
-            }
-
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-              <div class="mb-3">
-                <label for="contactName" class="form-label">{{ i18n.t().contact.name_label }}</label>
-                <input type="text" class="form-control" id="contactName"
-                       formControlName="name"
-                       [placeholder]="i18n.t().contact.name_placeholder"
-                       [class.is-invalid]="isInvalid('name')">
-                @if (isInvalid('name')) {
-                  <div class="invalid-feedback">{{ i18n.t().contact.name_error }}</div>
-                }
-              </div>
-
-              <div class="mb-3">
-                <label for="contactEmail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="contactEmail"
-                       formControlName="email"
-                       [placeholder]="i18n.t().contact.email_placeholder"
-                       [class.is-invalid]="isInvalid('email')">
-                @if (isInvalid('email')) {
-                  <div class="invalid-feedback">{{ i18n.t().contact.email_error }}</div>
-                }
-              </div>
-
-              <div class="mb-4">
-                <label for="contactMessage" class="form-label">{{ i18n.t().contact.message_label }}</label>
-                <textarea class="form-control" id="contactMessage"
-                          formControlName="message"
-                          rows="4"
-                          [placeholder]="i18n.t().contact.message_placeholder"
-                          [class.is-invalid]="isInvalid('message')"></textarea>
-                @if (isInvalid('message')) {
-                  <div class="invalid-feedback">{{ i18n.t().contact.message_error }}</div>
-                }
-              </div>
-
-              <button type="submit" class="btn btn-primary w-100"
-                      [disabled]="state === 'sending'">
-                @if (state === 'sending') {
-                  <span class="spinner-border spinner-border-sm me-2" role="status"></span>
-                  {{ i18n.t().contact.sending }}
-                } @else {
-                  <i class="fas fa-paper-plane me-2"></i>{{ i18n.t().contact.submit }}
-                }
-              </button>
-            </form>
           </div>
-        </div>
+
+          <button type="submit" class="btn-accent contact-submit" [disabled]="state === 'sending'">
+            @if (state === 'sending') {
+              <span class="spinner-border spinner-border-sm" role="status"></span>
+              {{ i18n.t().contact.sending }}
+            } @else {
+              <i class="fas fa-paper-plane"></i>
+              {{ i18n.t().contact.submit }}
+            }
+          </button>
+        </form>
       </div>
+
     </div>
   </div>
 </section>

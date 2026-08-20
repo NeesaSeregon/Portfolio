@@ -1,40 +1,71 @@
-<section id="hero" class="hero-section d-flex align-items-center">
+<section id="hero" class="hero-section">
   <div class="container">
-    <div class="row align-items-center justify-content-center">
+    <div class="hero-grid">
 
-      <div class="col-lg-7 order-2 order-lg-1 text-center text-lg-start">
-        <p class="hero-greeting mb-1">{{ i18n.t().hero.greeting }}</p>
-        <h1 class="hero-name display-3 fw-bold mb-2">{{ portfolio.name }}</h1>
-        <h2 class="hero-title h4 mb-3">{{ i18n.t().portfolio.title }}</h2>
-        <p class="hero-tagline lead mb-4">{{ i18n.t().portfolio.tagline }}</p>
+      <div class="hero-main">
+        <p class="hero-status">
+          <span class="hero-status-dot" aria-hidden="true"></span>{{ i18n.t().hero.available }}
+        </p>
 
-        <div class="hero-actions d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
-          <button class="btn btn-primary btn-lg" (click)="scrollTo('projects')">
-            <i class="fas fa-code me-2"></i>{{ i18n.t().hero.cta_projects }}
+        <h1 class="hero-name">
+          {{ portfolio.shortName }}<br>
+          <span class="hero-name-dim">{{ portfolio.lastName }}</span>
+        </h1>
+
+        <p class="hero-title">{{ i18n.t().portfolio.title }}</p>
+        <p class="hero-tagline text-balance">{{ i18n.t().portfolio.tagline }}</p>
+
+        <div class="hero-actions">
+          <button type="button" class="btn-accent" (click)="scrollTo('projects')">
+            {{ i18n.t().hero.cta_projects }}
+            <i class="fas fa-arrow-right"></i>
           </button>
-          <button class="btn btn-outline-secondary btn-lg" (click)="scrollTo('contact')">
-            <i class="fas fa-envelope me-2"></i>{{ i18n.t().hero.cta_contact }}
+          <button type="button" class="btn-ghost" (click)="scrollTo('contact')">
+            <i class="fas fa-envelope"></i>
+            {{ i18n.t().hero.cta_contact }}
           </button>
         </div>
 
-        <div class="hero-socials mt-4 d-flex gap-3 justify-content-center justify-content-lg-start">
+        <div class="hero-socials">
           @for (link of portfolio.socialLinks; track link.platform) {
             <a [href]="link.url" target="_blank" rel="noopener noreferrer"
-               class="social-icon" [title]="link.platform">
+               class="social-link" [title]="link.platform">
               <i [class]="link.iconClass"></i>
+              <span>{{ link.platform }}</span>
             </a>
           }
         </div>
       </div>
 
-      <div class="col-lg-4 order-1 order-lg-2 text-center mb-4 mb-lg-0">
+      <div class="hero-aside">
         <div class="hero-photo-wrapper">
-          <img [src]="portfolio.photoUrl" [alt]="portfolio.name"
-               class="hero-photo rounded-circle"
-               onerror="this.src='https://via.placeholder.com/250x250/6c757d/ffffff?text=Foto'">
+          <span class="hero-photo-bracket" aria-hidden="true"></span>
+          <img [src]="portfolio.photoUrl" [alt]="portfolio.name" class="hero-photo"
+               onerror="this.src='https://via.placeholder.com/372x428/1e293b/94a3b8?text=Foto'">
+          <div class="hero-stat">
+            <span class="hero-stat-value">{{ portfolio.certifications.length }}</span>
+            <span class="hero-stat-label">{{ i18n.t().hero.certs_note }}</span>
+          </div>
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <div class="hero-strip">
+    <div class="container hero-strip-inner">
+      <div class="hero-stack">
+        @for (tech of portfolio.heroStack; track tech) {
+          <span>{{ tech }}</span>
+        }
+      </div>
+      @if (portfolio.featuredProject; as featured) {
+        <button type="button" class="hero-featured" (click)="scrollTo('projects')">
+          <span class="meta-label">{{ i18n.t().hero.featured_label }}</span>
+          <span class="hero-featured-name">{{ featured.name }}</span>
+          <i class="fas fa-arrow-up-right-from-square"></i>
+        </button>
+      }
     </div>
   </div>
 </section>

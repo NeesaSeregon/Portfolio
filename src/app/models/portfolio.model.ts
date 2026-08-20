@@ -20,6 +20,9 @@ export interface Education {
   startYear: number;
   endYear: number | null;
   description?: string;
+  type?: 'degree' | 'certification';
+  /** Código corto de la certificación (MS-900, AZ-900...). */
+  code?: string;
 }
 
 export interface Project {
@@ -29,6 +32,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   featured?: boolean;
+  imageUrl?: string;
 }
 
 export interface SocialLink {

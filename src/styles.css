@@ -70,6 +70,13 @@ body {
 /* ================================
    Secciones
    ================================ */
+
+/* La barra superior es fixed: sin esto el destino de cada enlace queda
+   debajo de ella y parece que el scroll "se ha quedado a medias". */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 .section-padding {
   padding: var(--section-padding);
 }

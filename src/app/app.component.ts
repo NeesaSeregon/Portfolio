@@ -8,6 +8,7 @@ import { EducationComponent } from './components/education/education.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PortfolioService } from './services/portfolio.service';
+import { ScrollService } from './services/scroll.service';
 import { TranslationService } from './services/translation.service';
 
 @Component({
@@ -29,8 +30,9 @@ import { TranslationService } from './services/translation.service';
 export class AppComponent {
   portfolio = inject(PortfolioService);
   i18n = inject(TranslationService);
+  private scroll = inject(ScrollService);
 
   scrollTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.scroll.toTop();
   }
 }

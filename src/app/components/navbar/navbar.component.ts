@@ -1,5 +1,6 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { PortfolioService } from '../../services/portfolio.service';
+import { ScrollService } from '../../services/scroll.service';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { TranslationService } from '../../services/translation.service';
 export class NavbarComponent {
   portfolio = inject(PortfolioService);
   i18n = inject(TranslationService);
+  private scroll = inject(ScrollService);
   isScrolled = false;
 
   @HostListener('window:scroll')
@@ -19,10 +21,12 @@ export class NavbarComponent {
   }
 
   scrollTo(sectionId: string) {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    // Primero se cierra el menú desplegable y después se desplaza: al revés,
+    // el layout cambiaba a mitad del recorrido y el scroll se quedaba corto.
     const navCollapse = document.getElementById('navbarNav');
     if (navCollapse?.classList.contains('show')) {
       (document.querySelector('.navbar-toggler') as HTMLElement)?.click();
     }
+    this.scroll.toSection(sectionId);
   }
 }

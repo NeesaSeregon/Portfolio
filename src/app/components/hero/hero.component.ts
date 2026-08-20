@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { PortfolioService } from '../../services/portfolio.service';
+import { ScrollService } from '../../services/scroll.service';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -11,8 +12,9 @@ import { TranslationService } from '../../services/translation.service';
 export class HeroComponent {
   portfolio = inject(PortfolioService);
   i18n = inject(TranslationService);
+  private scroll = inject(ScrollService);
 
   scrollTo(sectionId: string) {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    this.scroll.toSection(sectionId);
   }
 }

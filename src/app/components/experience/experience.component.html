@@ -21,9 +21,7 @@
                 <h3 class="timeline-position">{{ i18n.t().experience.jobs[i].position }}</h3>
                 <p class="timeline-company">{{ job.company }}</p>
               </div>
-              <span class="date-badge">
-                {{ i18n.t().experience.jobs[i].startDate }} — {{ i18n.t().experience.jobs[i].endDate ?? i18n.t().experience.present }}
-              </span>
+              <span class="date-badge">{{ period(i) }}</span>
             </header>
 
             <ul class="timeline-list">
